@@ -116,12 +116,22 @@
         <div class="features-grid">
           <!-- Card 1: 100% Anonymous -->
           <article class="feature-card" id="feature-anonymous">
-            <div class="feature-icon-wrapper">
-              <svg class="feature-svg" viewBox="0 0 100 100" fill="none" stroke-width="6" stroke-linecap="round">
-                <path d="M 20 80 A 30 30 0 0 1 80 80" stroke="var(--text-primary)" />
-                <circle cx="50" cy="38" r="18" stroke="var(--text-primary)" />
-                <path d="M 44 42 H 56 V 56 H 44 Z" fill="var(--brand-primary)" stroke="var(--brand-primary)" stroke-width="2" />
-                <circle cx="50" cy="49" r="2.5" fill="var(--bg-secondary)" />
+            <div class="feature-illustration-container">
+              <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Profile Card Background -->
+                <rect x="35" y="25" width="130" height="70" rx="8" stroke="var(--text-primary)" stroke-width="4" fill="var(--bg-secondary)" />
+                <!-- Profile Avatar Area -->
+                <circle cx="65" cy="55" r="16" stroke="var(--text-primary)" stroke-width="4" />
+                <!-- Avatar details: Anonymous question mark -->
+                <text x="65" y="61" font-family="'Outfit', sans-serif" font-size="18" font-weight="800" fill="var(--brand-primary)" text-anchor="middle">?</text>
+                <!-- Fake detail lines -->
+                <line x1="95" y1="45" x2="145" y2="45" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
+                <line x1="95" y1="58" x2="135" y2="58" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
+                <line x1="95" y1="71" x2="120" y2="71" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
+                <!-- Overlay Padlock -->
+                <rect x="132" y="60" width="30" height="24" rx="4" fill="var(--brand-primary)" stroke="var(--brand-primary)" stroke-width="2" />
+                <path d="M139 60V52a11 11 0 0 1 16 0v8" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="147" cy="72" r="2.5" fill="var(--bg-secondary)" />
               </svg>
             </div>
             <h3>Account-Free Access</h3>
@@ -130,12 +140,26 @@
 
           <!-- Card 2: WebRTC Voice & Text -->
           <article class="feature-card" id="feature-webrtc">
-            <div class="feature-icon-wrapper">
-              <svg class="feature-svg" viewBox="0 0 100 100" fill="none" stroke-width="6" stroke-linecap="round">
-                <circle cx="25" cy="50" r="11" stroke="var(--text-primary)" />
-                <circle cx="75" cy="50" r="11" stroke="var(--brand-primary)" />
-                <path d="M 42 45 Q 50 35 58 45 T 66 45" stroke="var(--brand-primary)" stroke-dasharray="2 5" />
-                <path d="M 38 52 Q 50 62 62 52" stroke="var(--text-primary)" />
+            <div class="feature-illustration-container">
+              <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Left Chat Bubble -->
+                <rect x="25" y="25" width="60" height="40" rx="6" stroke="var(--text-primary)" stroke-width="4" fill="var(--bg-secondary)" />
+                <path d="M 40 65 L 45 75 L 55 65 Z" fill="var(--text-primary)" stroke="var(--text-primary)" stroke-width="2" />
+                <!-- Text rows inside left bubble -->
+                <line x1="38" y1="40" x2="72" y2="40" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
+                <line x1="38" y1="50" x2="60" y2="50" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
+                
+                <!-- Right Chat Bubble -->
+                <rect x="115" y="45" width="60" height="40" rx="6" stroke="var(--brand-primary)" stroke-width="4" fill="var(--bg-secondary)" />
+                <path d="M 160 85 L 155 95 L 145 85 Z" fill="var(--brand-primary)" stroke="var(--brand-primary)" stroke-width="2" />
+                <!-- Text rows inside right bubble -->
+                <line x1="128" y1="60" x2="162" y2="60" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" />
+                <line x1="128" y1="70" x2="150" y2="70" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" />
+                
+                <!-- Direct WebRTC Audio connection in the center -->
+                <path d="M 75 80 Q 100 65 125 80" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 6" />
+                <path d="M 70 85 Q 100 70 130 85" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
+                <circle cx="100" cy="77" r="5" fill="var(--brand-primary)" />
               </svg>
             </div>
             <h3>P2P Voice & Text Channels</h3>
@@ -144,15 +168,25 @@
 
           <!-- Card 3: Zero Logs -->
           <article class="feature-card" id="feature-zerolog">
-            <div class="feature-icon-wrapper">
-              <svg class="feature-svg" viewBox="0 0 100 100" fill="none" stroke-width="6" stroke-linecap="round">
-                <path d="M 25 20 H 65 L 75 30 V 45" stroke="var(--text-primary)" />
-                <path d="M 60 20 V 35 H 75" stroke="var(--text-primary)" />
-                <circle cx="25" cy="65" r="4.5" fill="var(--brand-primary)" />
-                <circle cx="38" cy="78" r="5.5" fill="var(--brand-primary)" />
-                <circle cx="54" cy="62" r="3.5" fill="var(--brand-primary)" />
-                <circle cx="68" cy="74" r="5" fill="var(--brand-primary)" />
-                <circle cx="78" cy="60" r="4" fill="var(--brand-primary)" />
+            <div class="feature-illustration-container">
+              <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Top half of paper document -->
+                <path d="M 50 20 H 130 L 150 40 V 65 H 50 Z" stroke="var(--text-primary)" stroke-width="4" fill="var(--bg-secondary)" />
+                <path d="M 125 20 V 40 H 150" stroke="var(--text-primary)" stroke-width="4" />
+                <!-- Content lines in document -->
+                <line x1="65" y1="38" x2="115" y2="38" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
+                <line x1="65" y1="52" x2="135" y2="52" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
+                
+                <!-- Bottom half dissolving/fading out -->
+                <circle cx="50" cy="85" r="5" fill="var(--brand-primary)" />
+                <circle cx="70" cy="98" r="6" fill="var(--brand-primary)" />
+                <circle cx="95" cy="80" r="4" fill="var(--brand-primary)" />
+                <circle cx="120" cy="95" r="7" fill="var(--brand-primary)" />
+                <circle cx="145" cy="82" r="5" fill="var(--brand-primary)" />
+                <circle cx="160" cy="95" r="4" fill="var(--brand-primary)" />
+                <!-- Sparkle symbols -->
+                <path d="M 85 70 L 88 75 L 93 76 L 88 77 L 85 82 L 82 77 L 77 76 L 82 75 Z" fill="var(--brand-primary)" />
+                <path d="M 130 68 L 132 72 L 137 73 L 132 74 L 130 78 L 128 74 L 123 73 L 128 72 Z" fill="var(--brand-primary)" />
               </svg>
             </div>
             <h3>Zero Logged Data</h3>
@@ -161,15 +195,23 @@
 
           <!-- Card 4: Interests Filter -->
           <article class="feature-card" id="feature-interests">
-            <div class="feature-icon-wrapper">
-              <svg class="feature-svg" viewBox="0 0 100 100" fill="none" stroke-width="6" stroke-linecap="round">
-                <circle cx="50" cy="50" r="22" stroke="var(--text-primary)" />
-                <circle cx="50" cy="50" r="36" stroke="var(--brand-primary)" stroke-dasharray="4 8" />
-                <circle cx="50" cy="50" r="5" fill="var(--brand-primary)" />
-                <line x1="50" y1="14" x2="50" y2="28" stroke="var(--text-primary)" />
-                <line x1="86" y1="50" x2="72" y2="50" stroke="var(--text-primary)" />
-                <circle cx="50" cy="14" r="6.5" fill="var(--brand-primary)" />
-                <circle cx="86" cy="50" r="6.5" fill="var(--text-primary)" />
+            <div class="feature-illustration-container">
+              <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Concentric orbits -->
+                <circle cx="100" cy="60" r="24" stroke="var(--text-primary)" stroke-width="4" />
+                <circle cx="100" cy="60" r="42" stroke="var(--brand-primary)" stroke-width="4" stroke-dasharray="6 10" />
+                <circle cx="100" cy="60" r="6" fill="var(--brand-primary)" />
+                
+                <!-- Matching tag 1: [#React] -->
+                <rect x="25" y="15" width="60" height="24" rx="12" fill="var(--bg-secondary)" stroke="var(--text-primary)" stroke-width="4" />
+                <text x="55" y="31" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="var(--text-primary)" text-anchor="middle">#React</text>
+                
+                <!-- Matching tag 2: [#React] connected to orbit -->
+                <rect x="115" y="80" width="60" height="24" rx="12" fill="var(--bg-secondary)" stroke="var(--brand-primary)" stroke-width="4" />
+                <text x="145" y="96" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="var(--brand-primary)" text-anchor="middle">#React</text>
+                
+                <!-- Connecting match line -->
+                <line x1="85" y1="27" x2="115" y2="92" stroke="var(--brand-primary)" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round" />
               </svg>
             </div>
             <h3>Interest Matching</h3>
@@ -178,14 +220,21 @@
 
           <!-- Card 5: Gender Filters -->
           <article class="feature-card" id="feature-gender">
-            <div class="feature-icon-wrapper">
-              <svg class="feature-svg" viewBox="0 0 100 100" fill="none" stroke-width="6" stroke-linecap="round">
-                <circle cx="38" cy="62" r="16" stroke="var(--text-primary)" />
-                <line x1="50" y1="50" x2="68" y2="32" stroke="var(--text-primary)" />
-                <polyline points="52 32 68 32 68 48" stroke="var(--text-primary)" />
-                <circle cx="62" cy="38" r="16" stroke="var(--brand-primary)" />
-                <line x1="50" y1="50" x2="32" y2="68" stroke="var(--brand-primary)" />
-                <line x1="26" y1="62" x2="38" y2="62" stroke="var(--brand-primary)" />
+            <div class="feature-illustration-container">
+              <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Stylized male symbol -->
+                <circle cx="60" cy="72" r="20" stroke="var(--text-primary)" stroke-width="4" />
+                <line x1="74" y1="58" x2="96" y2="36" stroke="var(--text-primary)" stroke-width="4" />
+                <polyline points="78 36 96 36 96 54" stroke="var(--text-primary)" stroke-width="4" stroke-linejoin="round" />
+                
+                <!-- Stylized female symbol -->
+                <circle cx="140" cy="48" r="20" stroke="var(--brand-primary)" stroke-width="4" />
+                <line x1="126" y1="62" x2="104" y2="84" stroke="var(--brand-primary)" stroke-width="4" />
+                <line x1="98" y1="78" x2="110" y2="78" stroke="var(--brand-primary)" stroke-width="4" />
+                
+                <!-- Matching selector indicator -->
+                <rect x="25" y="48" width="22" height="22" rx="4" fill="var(--brand-primary)" />
+                <path d="M30 59 L34 63 L41 55" stroke="var(--bg-secondary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </div>
             <h3>Matching Preferences</h3>
@@ -194,13 +243,24 @@
 
           <!-- Card 6: Standalone UI -->
           <article class="feature-card" id="feature-pip">
-            <div class="feature-icon-wrapper">
-              <svg class="feature-svg" viewBox="0 0 100 100" fill="none" stroke-width="6" stroke-linecap="round">
-                <rect x="15" y="15" width="55" height="40" rx="6" stroke="var(--text-primary)" />
-                <line x1="15" y1="28" x2="70" y2="28" stroke="var(--text-primary)" />
-                <rect x="42" y="42" width="43" height="43" rx="8" stroke="var(--brand-primary)" fill="var(--bg-secondary)" />
-                <line x1="42" y1="54" x2="85" y2="54" stroke="var(--brand-primary)" />
-                <circle cx="50" cy="48" r="3" fill="var(--brand-primary)" />
+            <div class="feature-illustration-container">
+              <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background window/monitor layout -->
+                <rect x="25" y="15" width="115" height="75" rx="8" stroke="var(--text-primary)" stroke-width="4" fill="var(--bg-secondary)" />
+                <line x1="25" y1="36" x2="140" y2="36" stroke="var(--text-primary)" stroke-width="4" />
+                <!-- Window mock dots -->
+                <circle cx="37" cy="25" r="3.5" fill="var(--text-primary)" />
+                <circle cx="49" cy="25" r="3.5" fill="var(--text-primary)" />
+                <circle cx="61" cy="25" r="3.5" fill="var(--text-primary)" />
+                
+                <!-- Foreground/floating extension window -->
+                <rect x="100" y="45" width="75" height="60" rx="10" stroke="var(--brand-primary)" stroke-width="4" fill="var(--bg-secondary)" />
+                <line x1="100" y1="64" x2="175" y2="64" stroke="var(--brand-primary)" stroke-width="4" />
+                <circle cx="112" cy="54" r="3" fill="var(--brand-primary)" />
+                
+                <!-- Text line placeholders in floating popup -->
+                <line x1="112" y1="78" x2="152" y2="78" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" />
+                <line x1="112" y1="88" x2="140" y2="88" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" />
               </svg>
             </div>
             <h3>Independent App Window</h3>
