@@ -95,25 +95,35 @@ a {
 
 /* Header & Navbar */
 header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: rgba(252, 250, 247, 0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
-  transition: var(--transition-normal);
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 800px; /* Floating rounded style with lesser width */
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(254, 215, 170, 0.55);
+  border-radius: 32px;
+  box-shadow: 0 10px 30px -10px rgba(28, 25, 23, 0.06);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 header.scrolled {
-  padding: 10px 0;
-  box-shadow: var(--shadow-sm);
+  top: 12px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(254, 215, 170, 0.85);
+  box-shadow: 0 12px 35px -10px rgba(255, 92, 0, 0.1);
 }
 
 .nav-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 60px;
+  padding: 0 24px;
 }
 
 .logo {
@@ -193,7 +203,7 @@ header.scrolled {
 
 /* Hero Section */
 .hero {
-  padding: 100px 0 80px 0;
+  padding: 160px 0 80px 0;
   position: relative;
   overflow: hidden;
 }

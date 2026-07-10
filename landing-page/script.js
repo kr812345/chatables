@@ -14,12 +14,8 @@ function setupHeaderScroll() {
   const toggleHeaderState = () => {
     if (window.scrollY > 20) {
       header.classList.add('scrolled');
-      header.style.backgroundColor = 'rgba(255, 249, 246, 0.95)';
-      header.style.boxShadow = '0 10px 30px -10px rgba(28, 25, 23, 0.08)';
     } else {
       header.classList.remove('scrolled');
-      header.style.backgroundColor = 'rgba(255, 249, 246, 0.8)';
-      header.style.boxShadow = 'none';
     }
   };
 

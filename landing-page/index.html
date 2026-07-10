@@ -118,20 +118,22 @@
           <article class="feature-card" id="feature-anonymous">
             <div class="feature-illustration-container">
               <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Profile Card Background -->
-                <rect x="35" y="25" width="130" height="70" rx="8" stroke="var(--text-primary)" stroke-width="4" fill="var(--bg-secondary)" />
-                <!-- Profile Avatar Area -->
-                <circle cx="65" cy="55" r="16" stroke="var(--text-primary)" stroke-width="4" />
-                <!-- Avatar details: Anonymous question mark -->
-                <text x="65" y="61" font-family="'Outfit', sans-serif" font-size="18" font-weight="800" fill="var(--brand-primary)" text-anchor="middle">?</text>
-                <!-- Fake detail lines -->
-                <line x1="95" y1="45" x2="145" y2="45" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
-                <line x1="95" y1="58" x2="135" y2="58" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
-                <line x1="95" y1="71" x2="120" y2="71" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
-                <!-- Overlay Padlock -->
-                <rect x="132" y="60" width="30" height="24" rx="4" fill="var(--brand-primary)" stroke="var(--brand-primary)" stroke-width="2" />
-                <path d="M139 60V52a11 11 0 0 1 16 0v8" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" />
-                <circle cx="147" cy="72" r="2.5" fill="var(--bg-secondary)" />
+                <!-- Background mesh/dots -->
+                <circle cx="30" cy="30" r="1.5" fill="#78716C" opacity="0.3"/>
+                <circle cx="50" cy="30" r="1.5" fill="#78716C" opacity="0.3"/>
+                <circle cx="170" cy="90" r="1.5" fill="#78716C" opacity="0.3"/>
+                
+                <!-- Profile Outline Box -->
+                <rect x="40" y="20" width="120" height="80" rx="12" fill="#FFFFFF" stroke="#1C1917" stroke-width="4" />
+                
+                <!-- User Silhouette -->
+                <circle cx="100" cy="50" r="16" stroke="#1C1917" stroke-width="4" fill="#FFF9F6"/>
+                <path d="M72 82C72 72 84 66 100 66C116 66 128 72 128 82" stroke="#1C1917" stroke-width="4" stroke-linecap="round" fill="none"/>
+                
+                <!-- Lock Overlay on the corner -->
+                <rect x="120" y="55" width="28" height="22" rx="4" fill="#FF5C00" stroke="#FF5C00" stroke-width="1" />
+                <path d="M126 55V48C126 43.5 130.5 40 134 40C137.5 40 142 43.5 142 48V55" stroke="#FF5C00" stroke-width="3" stroke-linecap="round" fill="none"/>
+                <circle cx="134" cy="66" r="2" fill="#FFFFFF"/>
               </svg>
             </div>
             <h3>Account-Free Access</h3>
@@ -142,24 +144,29 @@
           <article class="feature-card" id="feature-webrtc">
             <div class="feature-illustration-container">
               <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Left Chat Bubble -->
-                <rect x="25" y="25" width="60" height="40" rx="6" stroke="var(--text-primary)" stroke-width="4" fill="var(--bg-secondary)" />
-                <path d="M 40 65 L 45 75 L 55 65 Z" fill="var(--text-primary)" stroke="var(--text-primary)" stroke-width="2" />
-                <!-- Text rows inside left bubble -->
-                <line x1="38" y1="40" x2="72" y2="40" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
-                <line x1="38" y1="50" x2="60" y2="50" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
+                <!-- Left User Bubble -->
+                <rect x="25" y="25" width="55" height="40" rx="10" fill="#FFFFFF" stroke="#1C1917" stroke-width="4" />
+                <path d="M40 65L40 75L50 65" stroke="#1C1917" stroke-width="4" stroke-linejoin="round" fill="#FFFFFF" />
+                <circle cx="45" cy="45" r="4" fill="#1C1917" />
+                <circle cx="55" cy="45" r="4" fill="#1C1917" />
+                <circle cx="65" cy="45" r="4" fill="#1C1917" />
+
+                <!-- Right User Bubble -->
+                <rect x="120" y="45" width="55" height="40" rx="10" fill="#FFFFFF" stroke="#FF5C00" stroke-width="4" />
+                <path d="M160 85L160 95L150 85" stroke="#FF5C00" stroke-width="4" stroke-linejoin="round" fill="#FFFFFF" />
+                <circle cx="135" cy="65" r="4" fill="#FF5C00" />
+                <circle cx="145" cy="65" r="4" fill="#FF5C00" />
+                <circle cx="155" cy="65" r="4" fill="#FF5C00" />
+
+                <!-- Connecting P2P arrow line -->
+                <path d="M85 45 C 100 45, 100 65, 115 65" stroke="#FF5C00" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8" />
+                <path d="M85 45 L95 40" stroke="#FF5C00" stroke-width="4" stroke-linecap="round" />
+                <path d="M115 65 L105 70" stroke="#FF5C00" stroke-width="4" stroke-linecap="round" />
                 
-                <!-- Right Chat Bubble -->
-                <rect x="115" y="45" width="60" height="40" rx="6" stroke="var(--brand-primary)" stroke-width="4" fill="var(--bg-secondary)" />
-                <path d="M 160 85 L 155 95 L 145 85 Z" fill="var(--brand-primary)" stroke="var(--brand-primary)" stroke-width="2" />
-                <!-- Text rows inside right bubble -->
-                <line x1="128" y1="60" x2="162" y2="60" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" />
-                <line x1="128" y1="70" x2="150" y2="70" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" />
-                
-                <!-- Direct WebRTC Audio connection in the center -->
-                <path d="M 75 80 Q 100 65 125 80" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 6" />
-                <path d="M 70 85 Q 100 70 130 85" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
-                <circle cx="100" cy="77" r="5" fill="var(--brand-primary)" />
+                <!-- Speech frequency lines in center -->
+                <line x1="94" y1="55" x2="94" y2="61" stroke="#1C1917" stroke-width="3" stroke-linecap="round" />
+                <line x1="100" y1="50" x2="100" y2="66" stroke="#FF5C00" stroke-width="3" stroke-linecap="round" />
+                <line x1="106" y1="53" x2="106" y2="63" stroke="#1C1917" stroke-width="3" stroke-linecap="round" />
               </svg>
             </div>
             <h3>P2P Voice & Text Channels</h3>
@@ -170,23 +177,23 @@
           <article class="feature-card" id="feature-zerolog">
             <div class="feature-illustration-container">
               <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Top half of paper document -->
-                <path d="M 50 20 H 130 L 150 40 V 65 H 50 Z" stroke="var(--text-primary)" stroke-width="4" fill="var(--bg-secondary)" />
-                <path d="M 125 20 V 40 H 150" stroke="var(--text-primary)" stroke-width="4" />
-                <!-- Content lines in document -->
-                <line x1="65" y1="38" x2="115" y2="38" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
-                <line x1="65" y1="52" x2="135" y2="52" stroke="var(--text-primary)" stroke-width="4" stroke-linecap="round" />
+                <!-- Database cylinder outline -->
+                <path d="M 50 40 V 80 C 50 90, 110 90, 110 80 V 40" stroke="#1C1917" stroke-width="4" fill="none" />
+                <ellipse cx="80" cy="40" rx="30" ry="10" stroke="#1C1917" stroke-width="4" fill="#FFFFFF" />
+                <path d="M 50 60 C 50 70, 110 70, 110 60" stroke="#1C1917" stroke-width="4" fill="none" />
+                <path d="M 50 80 C 50 90, 110 90, 110 80" stroke="#1C1917" stroke-width="4" fill="none" />
                 
-                <!-- Bottom half dissolving/fading out -->
-                <circle cx="50" cy="85" r="5" fill="var(--brand-primary)" />
-                <circle cx="70" cy="98" r="6" fill="var(--brand-primary)" />
-                <circle cx="95" cy="80" r="4" fill="var(--brand-primary)" />
-                <circle cx="120" cy="95" r="7" fill="var(--brand-primary)" />
-                <circle cx="145" cy="82" r="5" fill="var(--brand-primary)" />
-                <circle cx="160" cy="95" r="4" fill="var(--brand-primary)" />
-                <!-- Sparkle symbols -->
-                <path d="M 85 70 L 88 75 L 93 76 L 88 77 L 85 82 L 82 77 L 77 76 L 82 75 Z" fill="var(--brand-primary)" />
-                <path d="M 130 68 L 132 72 L 137 73 L 132 74 L 130 78 L 128 74 L 123 73 L 128 72 Z" fill="var(--brand-primary)" />
+                <!-- Evaporating sparkles and dots to the right -->
+                <path d="M 125 35 L 128 40 L 133 41 L 128 42 L 125 47 L 122 42 L 117 41 L 122 40 Z" fill="#FF5C00" />
+                <path d="M 155 60 L 158 65 L 163 66 L 158 67 L 155 72 L 152 67 L 147 66 L 152 65 Z" fill="#FF5C00" />
+                <circle cx="135" cy="65" r="5" fill="#FF5C00" opacity="0.8" />
+                <circle cx="145" cy="80" r="3" fill="#FF5C00" opacity="0.6" />
+                <circle cx="165" cy="45" r="4.5" fill="#FF5C00" opacity="0.5" />
+                <circle cx="175" cy="70" r="3.5" fill="#FF5C00" opacity="0.3" />
+                
+                <!-- Wind sweeps -->
+                <path d="M 115 50 H 135" stroke="#FF5C00" stroke-width="3" stroke-linecap="round" />
+                <path d="M 125 75 H 155" stroke="#FF5C00" stroke-width="3" stroke-linecap="round" />
               </svg>
             </div>
             <h3>Zero Logged Data</h3>
@@ -197,21 +204,23 @@
           <article class="feature-card" id="feature-interests">
             <div class="feature-illustration-container">
               <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Concentric orbits -->
-                <circle cx="100" cy="60" r="24" stroke="var(--text-primary)" stroke-width="4" />
-                <circle cx="100" cy="60" r="42" stroke="var(--brand-primary)" stroke-width="4" stroke-dasharray="6 10" />
-                <circle cx="100" cy="60" r="6" fill="var(--brand-primary)" />
+                <!-- Radar Target rings -->
+                <circle cx="100" cy="60" r="45" stroke="#1C1917" stroke-width="3" stroke-dasharray="4 8" opacity="0.5" />
+                <circle cx="100" cy="60" r="30" stroke="#FF5C00" stroke-width="3" opacity="0.7" />
+                <circle cx="100" cy="60" r="5" fill="#FF5C00" />
                 
-                <!-- Matching tag 1: [#React] -->
-                <rect x="25" y="15" width="60" height="24" rx="12" fill="var(--bg-secondary)" stroke="var(--text-primary)" stroke-width="4" />
-                <text x="55" y="31" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="var(--text-primary)" text-anchor="middle">#React</text>
+                <!-- Tag 1: Left Node -->
+                <rect x="20" y="25" width="55" height="22" rx="11" fill="#FFFFFF" stroke="#1C1917" stroke-width="3" />
+                <text x="47.5" y="39.5" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#1C1917" text-anchor="middle">#Gaming</text>
                 
-                <!-- Matching tag 2: [#React] connected to orbit -->
-                <rect x="115" y="80" width="60" height="24" rx="12" fill="var(--bg-secondary)" stroke="var(--brand-primary)" stroke-width="4" />
-                <text x="145" y="96" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="var(--brand-primary)" text-anchor="middle">#React</text>
+                <!-- Tag 2: Right Node -->
+                <rect x="125" y="73" width="55" height="22" rx="11" fill="#FFFFFF" stroke="#FF5C00" stroke-width="3" />
+                <text x="152.5" y="87.5" font-family="'Inter', sans-serif" font-size="9" font-weight="700" fill="#FF5C00" text-anchor="middle">#Gaming</text>
                 
-                <!-- Connecting match line -->
-                <line x1="85" y1="27" x2="115" y2="92" stroke="var(--brand-primary)" stroke-width="4" stroke-dasharray="2 6" stroke-linecap="round" />
+                <!-- Connection line linking the two matching tags -->
+                <line x1="75" y1="36" x2="125" y2="84" stroke="#FF5C00" stroke-width="3" stroke-linecap="round" />
+                <!-- Match flash indicator -->
+                <circle cx="100" cy="60" r="14" stroke="#FF5C00" stroke-width="2" stroke-dasharray="2 4" />
               </svg>
             </div>
             <h3>Interest Matching</h3>
@@ -222,19 +231,28 @@
           <article class="feature-card" id="feature-gender">
             <div class="feature-illustration-container">
               <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Stylized male symbol -->
-                <circle cx="60" cy="72" r="20" stroke="var(--text-primary)" stroke-width="4" />
-                <line x1="74" y1="58" x2="96" y2="36" stroke="var(--text-primary)" stroke-width="4" />
-                <polyline points="78 36 96 36 96 54" stroke="var(--text-primary)" stroke-width="4" stroke-linejoin="round" />
+                <!-- Toggle Track -->
+                <rect x="50" y="48" width="100" height="24" rx="12" fill="#FFF9F6" stroke="#1C1917" stroke-width="4" />
+                <!-- Toggle Active Area (orange) -->
+                <rect x="52" y="50" width="50" height="20" rx="10" fill="#FF5C00" opacity="0.15" />
+                <!-- Slider Handle -->
+                <circle cx="75" cy="60" r="16" fill="#FF5C00" stroke="#1C1917" stroke-width="4" />
+                <circle cx="75" cy="60" r="5" fill="#FFFFFF" />
                 
-                <!-- Stylized female symbol -->
-                <circle cx="140" cy="48" r="20" stroke="var(--brand-primary)" stroke-width="4" />
-                <line x1="126" y1="62" x2="104" y2="84" stroke="var(--brand-primary)" stroke-width="4" />
-                <line x1="98" y1="78" x2="110" y2="78" stroke="var(--brand-primary)" stroke-width="4" />
+                <!-- Male Symbol (left) -->
+                <g transform="translate(15, 30)">
+                  <circle cx="20" cy="30" r="12" stroke="#1C1917" stroke-width="4" />
+                  <line x1="28" y1="22" x2="42" y2="8" stroke="#1C1917" stroke-width="4" stroke-linecap="round" />
+                  <line x1="32" y1="8" x2="42" y2="8" stroke="#1C1917" stroke-width="4" stroke-linecap="round" />
+                  <line x1="42" y1="8" x2="42" y2="18" stroke="#1C1917" stroke-width="4" stroke-linecap="round" />
+                </g>
                 
-                <!-- Matching selector indicator -->
-                <rect x="25" y="48" width="22" height="22" rx="4" fill="var(--brand-primary)" />
-                <path d="M30 59 L34 63 L41 55" stroke="var(--bg-secondary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                <!-- Female Symbol (right) -->
+                <g transform="translate(145, 30)">
+                  <circle cx="20" cy="20" r="12" stroke="#FF5C00" stroke-width="4" />
+                  <line x1="20" y1="32" x2="20" y2="46" stroke="#FF5C00" stroke-width="4" stroke-linecap="round" />
+                  <line x1="12" y1="39" x2="28" y2="39" stroke="#FF5C00" stroke-width="4" stroke-linecap="round" />
+                </g>
               </svg>
             </div>
             <h3>Matching Preferences</h3>
@@ -246,21 +264,27 @@
             <div class="feature-illustration-container">
               <svg class="feature-svg" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <!-- Background window/monitor layout -->
-                <rect x="25" y="15" width="115" height="75" rx="8" stroke="var(--text-primary)" stroke-width="4" fill="var(--bg-secondary)" />
-                <line x1="25" y1="36" x2="140" y2="36" stroke="var(--text-primary)" stroke-width="4" />
-                <!-- Window mock dots -->
-                <circle cx="37" cy="25" r="3.5" fill="var(--text-primary)" />
-                <circle cx="49" cy="25" r="3.5" fill="var(--text-primary)" />
-                <circle cx="61" cy="25" r="3.5" fill="var(--text-primary)" />
+                <rect x="25" y="15" width="110" height="70" rx="8" fill="#FFFFFF" stroke="#1C1917" stroke-width="4" />
+                <line x1="25" y1="33" x2="135" y2="33" stroke="#1C1917" stroke-width="4" />
+                <!-- Dots representing window controls -->
+                <circle cx="35" cy="24" r="3" fill="#1C1917" />
+                <circle cx="45" cy="24" r="3" fill="#1C1917" />
+                <circle cx="55" cy="24" r="3" fill="#1C1917" />
                 
-                <!-- Foreground/floating extension window -->
-                <rect x="100" y="45" width="75" height="60" rx="10" stroke="var(--brand-primary)" stroke-width="4" fill="var(--bg-secondary)" />
-                <line x1="100" y1="64" x2="175" y2="64" stroke="var(--brand-primary)" stroke-width="4" />
-                <circle cx="112" cy="54" r="3" fill="var(--brand-primary)" />
-                
-                <!-- Text line placeholders in floating popup -->
-                <line x1="112" y1="78" x2="152" y2="78" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" />
-                <line x1="112" y1="88" x2="140" y2="88" stroke="var(--brand-primary)" stroke-width="4" stroke-linecap="round" />
+                <!-- Floating Extension Window detaching (Orange) -->
+                <g transform="translate(100, 35)">
+                  <!-- Shadow indicator -->
+                  <rect x="2" y="2" width="70" height="65" rx="10" fill="#1C1917" opacity="0.15" />
+                  <!-- Actual Window -->
+                  <rect x="0" y="0" width="70" height="65" rx="10" fill="#FFFFFF" stroke="#FF5C00" stroke-width="4" />
+                  <line x1="0" y1="18" x2="70" y2="18" stroke="#FF5C00" stroke-width="4" />
+                  <!-- Miniature dots -->
+                  <circle cx="10" cy="9" r="2.5" fill="#FF5C00" />
+                  <!-- Detail lines in the popup -->
+                  <line x1="12" y1="30" x2="58" y2="30" stroke="#FF5C00" stroke-width="4" stroke-linecap="round" />
+                  <line x1="12" y1="42" x2="48" y2="42" stroke="#FF5C00" stroke-width="4" stroke-linecap="round" />
+                  <line x1="12" y1="52" x2="38" y2="52" stroke="#FF5C00" stroke-width="4" stroke-linecap="round" />
+                </g>
               </svg>
             </div>
             <h3>Independent App Window</h3>
