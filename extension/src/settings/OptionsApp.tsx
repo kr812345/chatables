@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Settings, Shield, User, Heart, Sparkles, Check, Sun, Moon } from 'lucide-react';
+import { Shield, User, Heart, Sparkles, Check, Sun, Moon } from 'lucide-react';
 import { UserSettings } from '../types';
 import { CONFIG } from '../config';
 
@@ -96,9 +96,12 @@ export default function OptionsApp() {
     <div className="w-full max-w-xl bg-dark-900 border border-dark-800 rounded-2xl shadow-2xl p-6 font-sans">
       <div className="flex items-center justify-between border-b border-dark-800 pb-4 mb-6">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-brand-900/10 text-white">
-            <Settings size={20} />
-          </div>
+          <svg className="w-10 h-10" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 269.28 296 A 80 80 0 1 1 269.28 216" stroke="var(--color-dark-50)" strokeWidth="24" strokeLinecap="round" />
+            <path d="M 242.72 216 A 80 80 0 1 1 242.72 296" stroke="#FF5C00" strokeWidth="24" strokeLinecap="round" />
+            <circle cx="200" cy="256" r="20" fill="#FF5C00" />
+            <circle cx="312" cy="256" r="20" fill="var(--color-dark-50)" />
+          </svg>
           <div>
             <h1 className="text-lg font-bold text-white tracking-wide">Chatables Configuration</h1>
             <p className="text-xs text-dark-400">Manage your matching profiles and local keys</p>
@@ -216,7 +219,7 @@ export default function OptionsApp() {
           <button
             type="submit"
             disabled={saveSuccess}
-            className="flex-1 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-medium text-sm py-2.5 px-4 rounded-xl transition-all shadow-[0_0_20px_rgba(139,92,246,0.15)] flex items-center justify-center gap-1.5 active:scale-98"
+            className="flex-1 bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-white font-medium text-sm py-2.5 px-4 rounded-xl transition-all shadow-[0_0_20px_rgba(255,92,0,0.15)] flex items-center justify-center gap-1.5 active:scale-98"
           >
             {saveSuccess ? (
               <>

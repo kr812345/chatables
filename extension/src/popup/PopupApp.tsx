@@ -6,7 +6,6 @@ import {
   MicOff, 
   LogOut, 
   AlertTriangle, 
-  Sparkles, 
   X, 
   ChevronLeft, 
   Globe, 
@@ -389,7 +388,7 @@ export default function PopupApp() {
           <button
             type="submit"
             disabled={saveSuccess}
-            className="w-full bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-medium text-sm py-2 px-4 rounded mt-auto flex items-center justify-center gap-1 transition-all shadow-[0_0_15px_rgba(139,92,246,0.1)] active:scale-95"
+            className="w-full bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-white font-medium text-sm py-2 px-4 rounded mt-auto flex items-center justify-center gap-1 transition-all shadow-[0_0_15px_rgba(255,92,0,0.15)] active:scale-95"
           >
             {saveSuccess ? (
               <>
@@ -449,7 +448,7 @@ export default function PopupApp() {
             </div>
 
             <div className="flex flex-col items-center gap-4 text-center z-10">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center shadow-lg relative shadow-brand-500/20">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-500 to-brand-600 flex items-center justify-center shadow-lg relative shadow-brand-500/20">
                 <Mic size={32} className="text-white" />
                 {!appState.isMuted && (
                   <>
@@ -577,9 +576,12 @@ export default function PopupApp() {
       {/* Home Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded bg-gradient-to-tr from-brand-600 to-indigo-600 flex items-center justify-center shadow-md">
-            <Sparkles size={16} className="text-white" />
-          </div>
+          <svg className="w-8 h-8" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 269.28 296 A 80 80 0 1 1 269.28 216" stroke="var(--color-dark-50)" strokeWidth="24" strokeLinecap="round" />
+            <path d="M 242.72 216 A 80 80 0 1 1 242.72 296" stroke="#FF5C00" strokeWidth="24" strokeLinecap="round" />
+            <circle cx="200" cy="256" r="20" fill="#FF5C00" />
+            <circle cx="312" cy="256" r="20" fill="var(--color-dark-50)" />
+          </svg>
           <h1 className="text-base font-bold text-white tracking-wide font-sans">Chatables</h1>
         </div>
 
@@ -606,7 +608,7 @@ export default function PopupApp() {
       <div className="flex-1 flex flex-col items-center justify-center my-6 gap-6">
         <button
           onClick={() => setView('choose-mode')}
-          className="w-28 h-28 rounded-full bg-gradient-to-tr from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-base shadow-lg shadow-brand-600/10 flex flex-col items-center justify-center gap-1.5 transition-all hover:scale-105 active:scale-95 border border-brand-400/20 relative group"
+          className="w-28 h-28 rounded-full bg-gradient-to-tr from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-white font-bold text-base shadow-lg shadow-brand-500/20 flex flex-col items-center justify-center gap-1.5 transition-all hover:scale-105 active:scale-95 border border-brand-400/20 relative group"
         >
           <span className="text-sm font-semibold tracking-wide">New Chat</span>
           <MessageSquare size={18} className="opacity-80 group-hover:scale-110 transition-transform" />
@@ -707,7 +709,7 @@ export default function PopupApp() {
               >
                 <div className={`text-xs px-3 py-2 rounded-lg leading-relaxed shadow-sm ${
                   isMe 
-                    ? 'bg-gradient-to-r from-brand-600 to-indigo-600 text-white rounded-tr-none' 
+                    ? 'bg-gradient-to-r from-brand-500 to-brand-600 text-white rounded-tr-none' 
                     : 'bg-dark-900 border border-dark-800 text-dark-100 rounded-tl-none'
                 }`}>
                   {msg.text}
