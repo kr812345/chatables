@@ -75,3 +75,30 @@ chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     return true;
   }
 });
+
+let chatWindowId: number | null = null;
+
+chrome.action.onClicked.addListener(async () => {
+  if (chatWindowId !== null) {
+    try {
+      // Focus existing window if it is already open
+      await chrome.windows.update(chatWindowId, { focused: true });
+      return;
+    } catch (e) {
+      // Window was closed, create a new one
+      chatWindowId = null;
+    }
+  }
+
+  const win = await chrome.windows.create({
+    url: 'popup.html',
+    type: 'popup',
+    width: 380,
+    height: 600,
+    focused: true
+  });
+  
+  if (win && win.id) {
+    chatWindowId = win.id;
+  }
+});
