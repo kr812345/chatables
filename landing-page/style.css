@@ -3,28 +3,28 @@
 
 :root {
   /* Colors */
-  --bg-primary: #FCFAF7; /* Warm soft light base */
+  --bg-primary: #FFF9F6; /* Warm clean light orange-cream base */
   --bg-secondary: #FFFFFF;
-  --bg-tertiary: #F3EFE9;
-  --text-primary: #0F172A; /* Slate 900 */
-  --text-secondary: #334155; /* Slate 700 */
-  --text-muted: #64748B; /* Slate 500 */
+  --bg-tertiary: #F7EFEB;
+  --text-primary: #1C1917; /* Stone 900, deep charcoal warm gray */
+  --text-secondary: #44403C; /* Stone 700 */
+  --text-muted: #78716C; /* Stone 500 */
   
-  --brand-primary: #4F8CFF; /* Electric Blue */
-  --brand-secondary: #8B5CF6; /* Violet */
+  --brand-primary: #FF5C00; /* Vibrant Electric Orange */
+  --brand-secondary: #EA580C; /* Darker Orange */
   --brand-accent: #10B981; /* Emerald Mint */
-  --brand-gradient: linear-gradient(135deg, #4F8CFF 0%, #8B5CF6 100%);
-  --brand-gradient-hover: linear-gradient(135deg, #3B82F6 0%, #7C3AED 100%);
-  --accent-gradient: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+  --brand-gradient: linear-gradient(135deg, #FF6B00 0%, #E63900 100%);
+  --brand-gradient-hover: linear-gradient(135deg, #FF7D1A 0%, #CC3300 100%);
+  --accent-gradient: linear-gradient(135deg, #10B981 0%, #FF5C00 100%);
   
-  --border-color: rgba(226, 232, 240, 0.9);
-  --border-hover: rgba(203, 213, 225, 0.9);
+  --border-color: rgba(254, 215, 170, 0.55); /* Warm soft amber-orange border */
+  --border-hover: rgba(253, 186, 116, 0.85);
   
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.03);
-  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 20px 40px rgba(79, 140, 255, 0.06);
-  --shadow-card-hover: 0 24px 48px rgba(79, 140, 255, 0.12);
+  /* Shadows with matching warm/orange tint */
+  --shadow-sm: 0 2px 4px rgba(28, 25, 23, 0.03);
+  --shadow-md: 0 4px 12px rgba(28, 25, 23, 0.04);
+  --shadow-lg: 0 20px 40px rgba(255, 92, 0, 0.04);
+  --shadow-card-hover: 0 24px 48px rgba(255, 92, 0, 0.08);
 
   /* Transitions */
   --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
