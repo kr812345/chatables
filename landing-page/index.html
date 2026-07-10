@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Best Practices -->
+  <title>Chatables - Privacy-First Anonymous Voice & Text Chat Extension</title>
+  <meta name="description" content="Instantly match and chat anonymously with voice or text via a borderless floating Chrome extension. No signups, no tracking, complete privacy.">
+  <meta name="keywords" content="anonymous chat, voice chat, text match, chrome extension, privacy, p2p call, webrtc, zero logs">
+  <meta name="author" content="Chatables Team">
+  <link rel="canonical" href="https://chatables.io">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <header id="site-header">
+    <div class="container">
+      <nav class="nav-wrapper" role="navigation" aria-label="Main Navigation">
+        <a href="#" class="logo" id="nav-brand-logo">
+          <!-- Inline Custom Logo adjusted for Light Mode contrast -->
+          <svg class="logo-icon" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 269.28 296 A 80 80 0 1 1 269.28 216" stroke="#0F172A" stroke-width="24" stroke-linecap="round" />
+            <path d="M 242.72 216 A 80 80 0 1 1 242.72 296" stroke="#4F8CFF" stroke-width="24" stroke-linecap="round" />
+            <circle cx="200" cy="256" r="20" fill="#4F8CFF" />
+            <circle cx="312" cy="256" r="20" fill="#0F172A" />
+          </svg>
+          <span>chatables</span>
+        </a>
+        
+        <ul class="nav-links">
+          <li><a href="#features" class="nav-link" id="nav-lnk-features">Features</a></li>
+          <!-- <li><a href="#pricing" class="nav-link" id="nav-lnk-pricing">Pricing</a></li> -->
+          <li><a href="#privacy" class="nav-link" id="nav-lnk-privacy">Security</a></li>
+        </ul>
+        
+        <a href="assets/chatables-extension.zip" class="btn btn-primary" id="nav-download-btn" download>
+          <span>Get Extension</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="badge" id="hero-badge">
+              <span class="pulse-dot" style="width: 6px; height: 6px; border-radius: 50%; bg-color: var(--brand-accent); background-color: var(--brand-accent); display: inline-block;"></span>
+              <span>100% Ephemeral & Secured</span>
+            </div>
+            <h1 class="hero-title">
+              Speak freely. Text instantly. <span class="gradient-text">Disappear completely.</span>
+            </h1>
+            <p class="hero-description">
+              Chatables is a lightweight, borderless Chrome extension that connects you to random peers around the world based on shared interests. No accounts, no metadata tracking, and zero logs. 
+            </p>
+            <div class="hero-ctas">
+              <a href="assets/chatables-extension.zip" class="btn btn-primary" id="hero-download-btn" download>
+                <span>Add to Browser — It's Free</span>
+              </a>
+              <a href="#features" class="btn btn-secondary" id="hero-secondary-btn">How it Works</a>
+            </div>
+            <div class="hero-features-list">
+              <div class="hero-feature-item" id="hero-feat-voice">
+                <svg class="hero-feature-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                  <path d="M19 10v1a7 7 0 0 1-14 0v-1"></path>
+                  <line x1="12" y1="19" x2="12" y2="22"></line>
+                </svg>
+                <span>Crystal-clear Voice</span>
+              </div>
+              <div class="hero-feature-item" id="hero-feat-text">
+                <svg class="hero-feature-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                <span>Instant Text</span>
+              </div>
+              <div class="hero-feature-item" id="hero-feat-secure">
+                <svg class="hero-feature-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span>P2P Encrypted</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-mockup-container">
+            <div class="hero-mockup-wrapper" id="hero-img-wrap">
+              <img src="assets/hero_mockup.jpg" alt="Chatables Chrome Extension Radar Interface" class="hero-mockup" id="hero-product-image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge" id="feat-badge">Core Pillars</span>
+          <h2 class="section-title">Designed with absolute privacy in mind</h2>
+          <p class="section-description">Every feature is built from the ground up to protect your digital footprint. Communication should be instant, human, and ephemeral.</p>
+        </div>
+        
+        <div class="features-grid">
+          <!-- Card 1: 100% Anonymous -->
+          <article class="feature-card" id="feature-anonymous">
+            <div class="feature-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.9 14h.1a4.2 4.2 0 0 0 4-4.2V8.3a4.2 4.2 0 0 0-4-4.2H6.1a4.2 4.2 0 0 0-4 4.2v1.5a4.2 4.2 0 0 0 4 4.2h.1"></path>
+                <path d="M8 21h8"></path>
+                <path d="M12 14v7"></path>
+              </svg>
+            </div>
+            <h3>Account-Free Access</h3>
+            <p>No phone numbers, emails, or Google sign-ins. Just install, set your preferences, and start matching. Your identity is hidden behind a random animal alias.</p>
+          </article>
+
+          <!-- Card 2: WebRTC Voice & Text -->
+          <article class="feature-card" id="feature-webrtc">
+            <div class="feature-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </div>
+            <h3>P2P Voice & Text Channels</h3>
+            <p>Engage in crystal-clear audio calls or fast text chats. Using direct WebRTC connections, your data goes directly peer-to-peer, routing around servers to minimize latency.</p>
+          </article>
+
+          <!-- Card 3: Zero Logs -->
+          <article class="feature-card" id="feature-zerolog">
+            <div class="feature-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+                <path d="M12 6v6l4 2"></path>
+              </svg>
+            </div>
+            <h3>Zero Logged Data</h3>
+            <p>Every message, signal, and audio stream is processed solely in-memory. Once you click "Leave Chat" or close the browser window, all traces disappear from the universe instantly.</p>
+          </article>
+
+          <!-- Card 4: Interests Filter -->
+          <article class="feature-card" id="feature-interests">
+            <div class="feature-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5"></path>
+                <path d="M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
+            <h3>Interest Matching</h3>
+            <p>Filter matches by specific interests and niche tags. Match with developers, gamers, movie buffs, or discuss specific topics without wading through generic chatrooms.</p>
+          </article>
+
+          <!-- Card 5: Gender Filters -->
+          <article class="feature-card" id="feature-gender">
+            <div class="feature-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3>Matching Preferences</h3>
+            <p>Toggle matching parameters to filter partners based on gender. Tailor your matchmaking preferences dynamically on the fly directly inside your floating panel.</p>
+          </article>
+
+          <!-- Card 6: Standalone UI -->
+          <article class="feature-card" id="feature-pip">
+            <div class="feature-icon-wrapper">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                <line x1="7" y1="2" x2="7" y2="22"></line>
+                <line x1="2" y1="7" x2="7" y2="7"></line>
+              </svg>
+            </div>
+            <h3>Independent App Window</h3>
+            <p>Opens as a standalone, borderless floating window. Drag it to your second monitor, collapse it during a call, and browse in other tabs without ever losing the conversation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section (Commented Out for Future Monetization Releases) -->
+    <!--
+    <section class="pricing" id="pricing" style="padding: 100px 0; background-color: var(--bg-primary); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-header">
+          <span class="badge">Pricing Plans</span>
+          <h2 class="section-title">Plans that scale with your needs</h2>
+          <p class="section-description">Unlock premium features, custom niches, and higher priority matchmaking channels.</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px;">
+          
+          <div class="price-card" style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 32px; text-align: center;">
+            <h3 style="margin-bottom: 8px;">Free Basic</h3>
+            <div style="font-size: 2.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 20px;">$0</div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px;">Perfect for occasional text & voice conversations.</p>
+            <ul style="list-style: none; text-align: left; display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; font-size: 0.85rem;">
+              <li>✓ Unlimited text matches</li>
+              <li>✓ Basic voice chat (up to 15 mins)</li>
+              <li>✓ 2 concurrent interest tags</li>
+              <li>✓ Standalone floating window</li>
+            </ul>
+            <button class="btn btn-secondary" style="width: 100%;">Current Plan</button>
+          </div>
+
+          <div class="price-card" style="background: white; border: 2px solid var(--brand-primary); border-radius: 16px; padding: 32px; text-align: center; position: relative; box-shadow: var(--shadow-lg);">
+            <span style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--brand-gradient); color: white; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; letter-spacing: 0.05em;">Most Popular</span>
+            <h3 style="margin-bottom: 8px;">Pro Voyager</h3>
+            <div style="font-size: 2.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 20px;">$4.99<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px;">For users who want priority access and unlimited sessions.</p>
+            <ul style="list-style: none; text-align: left; display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; font-size: 0.85rem;">
+              <li>✓ Everything in Free</li>
+              <li>✓ Priority matchmaking (3x faster matches)</li>
+              <li>✓ Unlimited voice call durations</li>
+              <li>✓ Unlimited interest & niche tags</li>
+              <li>✓ Premium alias customizations</li>
+            </ul>
+            <button class="btn btn-primary" style="width: 100%;">Upgrade to Pro</button>
+          </div>
+
+          <div class="price-card" style="background: white; border: 1px solid var(--border-color); border-radius: 16px; padding: 32px; text-align: center;">
+            <h3 style="margin-bottom: 8px;">Incognito Plus</h3>
+            <div style="font-size: 2.25rem; font-weight: 800; color: var(--text-primary); margin-bottom: 20px;">$9.99<span style="font-size: 1rem; color: var(--text-muted);">/mo</span></div>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px;">Advanced features for absolute stealth communication.</p>
+            <ul style="list-style: none; text-align: left; display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; font-size: 0.85rem;">
+              <li>✓ Everything in Pro</li>
+              <li>✓ Forced relay connection (hide IP address completely)</li>
+              <li>✓ Voice changer voice filters (Real-time DSP)</li>
+              <li>✓ Dedicated private interest hubs</li>
+              <li>✓ Ad-free experience</li>
+            </ul>
+            <button class="btn btn-secondary" style="width: 100%;">Select Plan</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    -->
+  </main>
+
+  <!-- Footer Section -->
+  <footer id="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo" id="footer-logo">
+            <svg class="logo-icon" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 269.28 296 A 80 80 0 1 1 269.28 216" stroke="#0F172A" stroke-width="24" stroke-linecap="round" />
+              <path d="M 242.72 216 A 80 80 0 1 1 242.72 296" stroke="#4F8CFF" stroke-width="24" stroke-linecap="round" />
+              <circle cx="200" cy="256" r="20" fill="#4F8CFF" />
+              <circle cx="312" cy="256" r="20" fill="#0F172A" />
+            </svg>
+            <span>chatables</span>
+          </a>
+          <p class="footer-tagline">Connecting humans anonymously across the globe, secured by default, ephemeral by choice.</p>
+        </div>
+        
+        <div class="footer-nav">
+          <div class="footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#features">Features</a></li>
+              <li><a href="assets/chatables-extension.zip" download>Download</a></li>
+            </ul>
+          </div>
+          <div class="footer-col" id="privacy">
+            <h4>Security</h4>
+            <ul>
+              <li><a href="#">Security Model</a></li>
+              <li><a href="#">WebRTC Audits</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <span>&copy; 2026 Chatables. Open Source under the MIT License.</span>
+        <div class="footer-privacy-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+          <span>Privacy Verified</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactivity Script -->
+  <script src="script.js"></script>
+</body>
+</html>
