@@ -15,6 +15,7 @@ import {
   Check
 } from 'lucide-react';
 import { ExtensionState, ChatMode, UserSettings } from '../types';
+import { CONFIG } from '../config';
 
 export default function PopupApp() {
   // Navigation: 'home' | 'choose-mode' | 'settings'
@@ -39,7 +40,7 @@ export default function PopupApp() {
     niche: '',
     gender: 'other',
     genderPref: 'any',
-    websocketUrl: 'ws://localhost:3000/chat',
+    websocketUrl: CONFIG.WEBSOCKET_URL,
   });
 
   // UI state variables
@@ -60,7 +61,7 @@ export default function PopupApp() {
   // 1. Sync App State and Settings from Chrome Storage on mount
   useEffect(() => {
     // Fetch state and settings
-    chrome.storage.local.get(['appState', 'userId', 'interests', 'niche', 'gender', 'genderPref', 'websocketUrl'], (result) => {
+    chrome.storage.local.get(['appState', 'userId', 'interests', 'niche', 'gender', 'genderPref'], (result) => {
       if (result.appState) {
         setAppState(result.appState);
       }
@@ -71,7 +72,7 @@ export default function PopupApp() {
         niche: result.niche || '',
         gender: result.gender || 'other',
         genderPref: result.genderPref || 'any',
-        websocketUrl: result.websocketUrl || 'ws://localhost:3000/chat',
+        websocketUrl: CONFIG.WEBSOCKET_URL,
       };
       setSettings(loadedSettings);
       setInterestInput(loadedSettings.interests.join(', '));
@@ -181,7 +182,7 @@ export default function PopupApp() {
               niche: settings.niche,
               gender: settings.gender,
               genderPref: settings.genderPref,
-              websocketUrl: settings.websocketUrl,
+              websocketUrl: CONFIG.WEBSOCKET_URL,
             }
           }
         });
@@ -361,16 +362,6 @@ export default function PopupApp() {
             </div>
           </div>
 
-          <div>
-            <label className="block text-xs font-medium text-dark-400 mb-1">Signaling Server URL</label>
-            <input
-              type="text"
-              value={settings.websocketUrl}
-              onChange={(e) => setSettings({ ...settings, websocketUrl: e.target.value })}
-              placeholder="ws://localhost:3000/chat"
-              className="w-full text-xs bg-dark-900 border border-dark-800 rounded px-2.5 py-1.5 focus:outline-none focus:border-brand-500 text-dark-300 font-mono"
-            />
-          </div>
 
           <p className="text-[10px] text-dark-500 italic mt-1 leading-relaxed">
             * All matching inputs are stored locally in your browser cache and only sent temporarily during matchmaking queues.

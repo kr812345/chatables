@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Settings, Shield, Globe, User, Heart, Sparkles, Check } from 'lucide-react';
+import { Settings, Shield, User, Heart, Sparkles, Check } from 'lucide-react';
 import { UserSettings } from '../types';
+import { CONFIG } from '../config';
 
 export default function OptionsApp() {
   const [settings, setSettings] = useState<UserSettings>({
@@ -9,21 +10,21 @@ export default function OptionsApp() {
     niche: '',
     gender: 'other',
     genderPref: 'any',
-    websocketUrl: 'ws://localhost:3000/chat',
+    websocketUrl: CONFIG.WEBSOCKET_URL,
   });
 
   const [interestInput, setInterestInput] = useState('');
   const [saveSuccess, setSaveSuccess] = useState(false);
 
   useEffect(() => {
-    chrome.storage.local.get(['userId', 'interests', 'niche', 'gender', 'genderPref', 'websocketUrl'], (result) => {
+    chrome.storage.local.get(['userId', 'interests', 'niche', 'gender', 'genderPref'], (result) => {
       const loadedSettings: UserSettings = {
         userId: result.userId || '',
         interests: result.interests || [],
         niche: result.niche || '',
         gender: result.gender || 'other',
         genderPref: result.genderPref || 'any',
-        websocketUrl: result.websocketUrl || 'ws://localhost:3000/chat',
+        websocketUrl: CONFIG.WEBSOCKET_URL,
       };
       setSettings(loadedSettings);
       setInterestInput(loadedSettings.interests.join(', '));
@@ -128,21 +129,6 @@ export default function OptionsApp() {
           </div>
         </div>
 
-        <div className="bg-dark-950 border border-dark-800/80 rounded-xl p-4 flex flex-col gap-3">
-          <h2 className="text-xs font-bold text-brand-300 uppercase tracking-widest flex items-center gap-1.5">
-            <Globe size={13} /> Connection & Infrastructure
-          </h2>
-          <div>
-            <label className="block text-xs font-medium text-dark-400 mb-1.5">WebSocket Relay URL</label>
-            <input
-              type="text"
-              value={settings.websocketUrl}
-              onChange={(e) => setSettings({ ...settings, websocketUrl: e.target.value })}
-              placeholder="ws://localhost:3000/chat"
-              className="w-full text-sm bg-dark-900 border border-dark-800 rounded-lg px-3 py-2 focus:outline-none focus:border-brand-500 text-brand-300 font-mono"
-            />
-          </div>
-        </div>
 
         <div className="text-[11px] text-dark-500 leading-relaxed bg-dark-950/50 rounded-lg p-3 border border-dark-800/40">
           <p className="font-semibold text-dark-400 mb-0.5">Privacy Notice:</p>
