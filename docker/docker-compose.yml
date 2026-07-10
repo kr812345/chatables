@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Ephemeral Redis cache database (no persistent volume mounts)
+  redis:
+    image: redis:7-alpine
+    container_name: chatables-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --save "" --appendonly no --maxmemory 256mb --maxmemory-policy allkeys-lru
+    networks:
+      - chatables-net
+
+  # Fastify Node.js WebSocket signaling and matchmaking server
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: chatables-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - HOST=0.0.0.5  # Binds to Fastify interface inside Docker
+      - REDIS_URL=redis://redis:6379
+      - SESSION_TTL=1800
+      - QUEUE_TTL=300
+      - COOLDOWN_TTL=900
+    depends_on:
+      - redis
+    networks:
+      - chatables-net
+
+  # Coturn TURN server for WebRTC voice stream relays when P2P fails
+  coturn:
+    image: coturn/coturn:latest
+    container_name: chatables-coturn
+    ports:
+      - "3478:3478/udp"
+      - "3478:3478/tcp"
+      - "3479:3479/udp"
+      - "3479:3479/tcp"
+    volumes:
+      - ./turnserver.conf:/etc/coturn/turnserver.conf:ro
+    command: -c /etc/coturn/turnserver.conf
+    networks:
+      - chatables-net
+
+networks:
+  chatables-net:
+    driver: bridge
