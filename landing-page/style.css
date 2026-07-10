@@ -348,15 +348,28 @@ header.scrolled {
 }
 
 .feature-icon-wrapper {
-  width: 48px;
-  height: 48px;
-  border-radius: 10px;
-  background: var(--brand-gradient);
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background-color: rgba(255, 92, 0, 0.06);
+  border: 1px solid rgba(255, 92, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
   margin-bottom: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-card:hover .feature-icon-wrapper {
+  background-color: rgba(255, 92, 0, 0.12);
+  border-color: rgba(255, 92, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.feature-svg {
+  width: 32px;
+  height: 32px;
+  display: block;
 }
 
 .feature-card h3 {
