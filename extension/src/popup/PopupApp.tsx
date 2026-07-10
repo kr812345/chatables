@@ -12,7 +12,9 @@ import {
   Globe, 
   Send,
   Loader2,
-  Check
+  Check,
+  Sun,
+  Moon
 } from 'lucide-react';
 import { ExtensionState, ChatMode, UserSettings } from '../types';
 import { CONFIG } from '../config';
@@ -52,6 +54,23 @@ export default function PopupApp() {
   const [callDuration, setCallDuration] = useState(0);
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [isVoiceChatOpen, setIsVoiceChatOpen] = useState(false); // Toggle chat drawer during voice
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
+  // Load and apply theme on mount
+  useEffect(() => {
+    chrome.storage.local.get(['theme'], (result) => {
+      const loadedTheme = result.theme || 'dark';
+      setTheme(loadedTheme);
+      document.documentElement.className = loadedTheme;
+    });
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    document.documentElement.className = nextTheme;
+    chrome.storage.local.set({ theme: nextTheme });
+  };
 
   // References
   const messageEndRef = useRef<HTMLDivElement>(null);
@@ -298,7 +317,7 @@ export default function PopupApp() {
   // Render view templates
   if (view === 'settings') {
     return (
-      <div className="w-full h-full flex flex-col bg-[#0B0F19] text-dark-100 p-4 font-sans">
+      <div className="w-full h-full flex flex-col bg-dark-950 text-dark-100 p-4 font-sans">
         <div className="flex items-center justify-between mb-4 border-b border-dark-800 pb-2">
           <button 
             onClick={() => setView('home')}
@@ -390,7 +409,7 @@ export default function PopupApp() {
     const isVoice = appState.mode === 'voice';
 
     return (
-      <div className="w-full h-full flex flex-col bg-[#0B0F19] text-dark-100 font-sans relative">
+      <div className="w-full h-full flex flex-col bg-dark-950 text-dark-100 font-sans relative">
         {/* Connection Header */}
         <div className="bg-dark-900 border-b border-dark-800 px-4 py-3 flex items-center justify-between shadow-sm">
           <div className="flex flex-col">
@@ -478,7 +497,7 @@ export default function PopupApp() {
 
             {/* SEAMLESS TEXT DRAWER FOR VOICE MODE */}
             {isVoiceChatOpen && (
-              <div className="absolute inset-0 bg-[#0B0F19]/95 z-20 flex flex-col border-t border-dark-800 animate-slide-up">
+              <div className="absolute inset-0 bg-dark-950/95 z-20 flex flex-col border-t border-dark-800 animate-slide-up">
                 <div className="px-4 py-2 border-b border-dark-800 flex items-center justify-between bg-dark-900">
                   <span className="text-xs text-dark-400 font-semibold uppercase tracking-wider">Voice Text Channel</span>
                   <button onClick={() => setIsVoiceChatOpen(false)} className="text-dark-500 hover:text-dark-300">
@@ -507,7 +526,7 @@ export default function PopupApp() {
   // Matchmaking or waiting interface (queuing status)
   if (appState.status === 'queuing') {
     return (
-      <div className="w-full h-full flex flex-col bg-[#0B0F19] text-dark-100 p-6 items-center justify-center font-sans relative">
+      <div className="w-full h-full flex flex-col bg-dark-950 text-dark-100 p-6 items-center justify-center font-sans relative">
         <div className="flex flex-col items-center gap-6 text-center z-10">
           {/* Matchmaking glowing loader animation */}
           <div className="w-24 h-24 rounded-full bg-dark-900 border border-brand-500/20 flex items-center justify-center relative shadow-[0_0_30px_rgba(139,92,246,0.05)]">
@@ -554,7 +573,7 @@ export default function PopupApp() {
 
   // Home Screen View (status = idle)
   return (
-    <div className="w-full h-full flex flex-col bg-[#0B0F19] text-dark-100 p-5 font-sans justify-between">
+    <div className="w-full h-full flex flex-col bg-dark-950 text-dark-100 p-5 font-sans justify-between">
       {/* Home Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -564,12 +583,23 @@ export default function PopupApp() {
           <h1 className="text-base font-bold text-white tracking-wide font-sans">Chatables</h1>
         </div>
 
-        <button 
-          onClick={() => setView('settings')}
-          className="p-2 rounded-full bg-dark-900 border border-dark-800 text-dark-400 hover:text-white hover:border-dark-700 transition-all active:scale-95 shadow-sm"
-        >
-          <Settings size={16} />
-        </button>
+        <div className="flex items-center gap-2">
+          <button 
+            type="button"
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-dark-900 border border-dark-800 text-dark-400 hover:text-white hover:border-dark-700 transition-all active:scale-95 shadow-sm"
+            title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          >
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+
+          <button 
+            onClick={() => setView('settings')}
+            className="p-2 rounded-full bg-dark-900 border border-dark-800 text-dark-400 hover:text-white hover:border-dark-700 transition-all active:scale-95 shadow-sm"
+          >
+            <Settings size={16} />
+          </button>
+        </div>
       </div>
 
       {/* Main visual button container */}
@@ -617,7 +647,7 @@ export default function PopupApp() {
 
       {/* Choose Mode Modal Overlay */}
       {view === 'choose-mode' && (
-        <div className="absolute inset-0 bg-[#0B0F19]/90 backdrop-blur-sm z-30 flex items-center justify-center p-6 transition-all">
+        <div className="absolute inset-0 bg-dark-950/90 backdrop-blur-sm z-30 flex items-center justify-center p-6 transition-all">
           <div className="w-full bg-dark-900 border border-dark-800 rounded-xl p-5 shadow-2xl flex flex-col gap-4 animate-scale-up">
             <div className="flex items-center justify-between">
               <h2 className="text-sm font-bold text-white tracking-wide uppercase">Select Chat Mode</h2>
@@ -732,7 +762,7 @@ export default function PopupApp() {
 
   function renderReportModal() {
     return (
-      <div className="absolute inset-0 bg-[#0B0F19]/90 backdrop-blur-sm z-40 flex items-center justify-center p-6">
+      <div className="absolute inset-0 bg-dark-950/90 backdrop-blur-sm z-40 flex items-center justify-center p-6">
         <div className="w-full bg-dark-900 border border-dark-800 rounded-xl p-5 shadow-2xl flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <h2 className="text-sm font-bold text-rose-400 flex items-center gap-1.5">

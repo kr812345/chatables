@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Settings, Shield, User, Heart, Sparkles, Check } from 'lucide-react';
+import { Settings, Shield, User, Heart, Sparkles, Check, Sun, Moon } from 'lucide-react';
 import { UserSettings } from '../types';
 import { CONFIG } from '../config';
 
@@ -16,6 +16,23 @@ export default function OptionsApp() {
   const [interestInput, setInterestInput] = useState('');
   const [saveSuccess, setSaveSuccess] = useState(false);
   const [micPermission, setMicPermission] = useState<'prompt' | 'granted' | 'denied'>('prompt');
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+
+  // Load and apply theme on mount
+  useEffect(() => {
+    chrome.storage.local.get(['theme'], (result) => {
+      const loadedTheme = result.theme || 'dark';
+      setTheme(loadedTheme);
+      document.documentElement.className = loadedTheme;
+    });
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme);
+    document.documentElement.className = nextTheme;
+    chrome.storage.local.set({ theme: nextTheme });
+  };
 
   useEffect(() => {
     // Check permission status
@@ -87,8 +104,19 @@ export default function OptionsApp() {
             <p className="text-xs text-dark-400">Manage your matching profiles and local keys</p>
           </div>
         </div>
-        <div className="flex items-center gap-1 bg-dark-950 border border-dark-800 rounded-full px-3 py-1 text-[10px] font-semibold text-brand-400 font-mono">
-          <Shield size={10} /> Privacy-First Mode
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="p-2 rounded-xl bg-dark-950 border border-dark-800 text-dark-400 hover:text-white transition-all active:scale-95 shadow-sm"
+            title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          >
+            {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+          </button>
+          
+          <div className="flex items-center gap-1 bg-dark-950 border border-dark-800 rounded-full px-3 py-1 text-[10px] font-semibold text-brand-400 font-mono">
+            <Shield size={10} /> Privacy-First Mode
+          </div>
         </div>
       </div>
 

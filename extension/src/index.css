@@ -2,9 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Default Dark Mode Colors */
+  --brand-50: #fff7ed;
+  --brand-100: #ffedd5;
+  --brand-200: #fed7aa;
+  --brand-300: #fdba74;
+  --brand-400: #fb923c;
+  --brand-500: #ff5c00; /* Vibrant Orange */
+  --brand-600: #ea580c;
+  --brand-700: #c2410c;
+  --brand-800: #9a3412;
+  --brand-900: #7c2d12;
+  --brand-950: #431407;
+
+  --color-dark-50: #f8fafc;
+  --color-dark-100: #f1f5f9;
+  --color-dark-200: #e2e8f0;
+  --color-dark-300: #cbd5e1;
+  --color-dark-400: #94a3b8;
+  --color-dark-500: #64748b;
+  --color-dark-600: #475569;
+  --color-dark-700: #334155;
+  --color-dark-800: #1e293b;
+  --color-dark-900: #0f172a;
+  --color-dark-950: #0b0f19; /* Matched to dark background hex #0B0F19 */
+}
+
+:root.light {
+  /* Light Mode Colors (Inverted Dark scale to Stone Gray & Orange Accent) */
+  --color-dark-50: #1c1917; /* Stone 900 */
+  --color-dark-100: #292524;
+  --color-dark-200: #44403c;
+  --color-dark-300: #57534e;
+  --color-dark-400: #78716c;
+  --color-dark-500: #a8a29e;
+  --color-dark-600: #d6d3d1;
+  --color-dark-700: #e7e5e4;
+  --color-dark-800: #f5efe8; /* Soft warm border */
+  --color-dark-900: #ffffff; /* White card */
+  --color-dark-950: #fffaf7; /* Warm light orange-cream base background */
+}
+
 @layer base {
   body {
-    @apply font-sans text-dark-100 bg-dark-950 antialiased;
+    background-color: var(--color-dark-950);
+    color: var(--color-dark-100);
+    @apply font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   /* Custom Scrollbar styling for a cleaner look */
@@ -13,14 +58,14 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: theme('colors.dark.950');
+    background: var(--color-dark-950);
   }
   ::-webkit-scrollbar-thumb {
-    background: theme('colors.dark.800');
+    background: var(--color-dark-800);
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: theme('colors.dark.700');
+    background: var(--color-dark-700);
   }
 }
 
@@ -30,6 +75,13 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.3s ease, border 0.3s ease;
+}
+
+:root.light .glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 92, 0, 0.12);
+  box-shadow: 0 10px 30px -10px rgba(255, 92, 0, 0.05);
 }
 
 .glass-light {
@@ -39,7 +91,12 @@
   border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-/* Ripple animations for matchmaking button */
+:root.light .glass-light {
+  background: rgba(255, 92, 0, 0.02);
+  border: 1px solid rgba(255, 92, 0, 0.06);
+}
+
+/* Ripple animations for matchmaking button (re-colored to orange!) */
 .pulse-ring {
   position: absolute;
   top: 50%;
@@ -48,7 +105,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: rgba(139, 92, 246, 0.15);
+  background: rgba(255, 92, 0, 0.15);
   animation: ripple 2.5s cubic-bezier(0.2, 0, 0, 1) infinite;
   pointer-events: none;
 }
@@ -61,7 +118,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: rgba(139, 92, 246, 0.08);
+  background: rgba(255, 92, 0, 0.08);
   animation: ripple 2.5s cubic-bezier(0.2, 0, 0, 1) infinite;
   animation-delay: 1.25s;
   pointer-events: none;
