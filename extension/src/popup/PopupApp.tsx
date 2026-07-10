@@ -583,8 +583,17 @@ export default function PopupApp() {
         </button>
 
         {appState.error && (
-          <div className="bg-rose-950/30 border border-rose-900/40 text-rose-300 text-xs px-3.5 py-2.5 rounded-lg max-w-[280px] text-center leading-relaxed shadow-sm">
-            {appState.error}
+          <div className="bg-rose-950/30 border border-rose-900/40 text-rose-300 text-xs px-3.5 py-2.5 rounded-lg max-w-[280px] text-center leading-relaxed shadow-sm flex flex-col gap-2 items-center">
+            <span>{appState.error}</span>
+            {appState.error.includes('Microphone') && (
+              <button
+                type="button"
+                onClick={() => chrome.runtime.openOptionsPage()}
+                className="text-brand-400 hover:text-brand-350 font-bold underline cursor-pointer mt-1 active:scale-95"
+              >
+                👉 Click here to grant access
+              </button>
+            )}
           </div>
         )}
 

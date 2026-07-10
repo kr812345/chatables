@@ -15,6 +15,30 @@ export default function OptionsApp() {
 
   const [interestInput, setInterestInput] = useState('');
   const [saveSuccess, setSaveSuccess] = useState(false);
+  const [micPermission, setMicPermission] = useState<'prompt' | 'granted' | 'denied'>('prompt');
+
+  useEffect(() => {
+    // Check permission status
+    if (navigator.permissions && navigator.permissions.query) {
+      navigator.permissions.query({ name: 'microphone' as any }).then((result) => {
+        setMicPermission(result.state);
+        result.onchange = () => {
+          setMicPermission(result.state);
+        };
+      }).catch(() => {});
+    }
+  }, []);
+
+  const handleRequestMic = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      stream.getTracks().forEach(track => track.stop());
+      setMicPermission('granted');
+    } catch (err) {
+      console.error(err);
+      setMicPermission('denied');
+    }
+  };
 
   useEffect(() => {
     chrome.storage.local.get(['userId', 'interests', 'niche', 'gender', 'genderPref'], (result) => {
@@ -129,6 +153,31 @@ export default function OptionsApp() {
           </div>
         </div>
 
+
+        <div className="bg-dark-950 border border-dark-800/80 rounded-xl p-4 flex flex-col gap-3">
+          <h2 className="text-xs font-bold text-brand-300 uppercase tracking-widest flex items-center gap-1.5">
+            <Shield size={13} className="text-brand-400" /> Microphone Access
+          </h2>
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex-1">
+              <p className="text-sm font-medium text-dark-250">Voice Chat Permission</p>
+              <p className="text-xs text-dark-500 mt-0.5 leading-normal">Required to speak during anonymous call matches.</p>
+            </div>
+            {micPermission === 'granted' ? (
+              <span className="text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-xl">
+                Active & Allowed
+              </span>
+            ) : (
+              <button
+                type="button"
+                onClick={handleRequestMic}
+                className="bg-brand-600 hover:bg-brand-500 text-white font-medium text-xs py-2 px-4 rounded-lg transition-all active:scale-95 shadow-lg shadow-brand-900/10"
+              >
+                Grant Access
+              </button>
+            )}
+          </div>
+        </div>
 
         <div className="text-[11px] text-dark-500 leading-relaxed bg-dark-950/50 rounded-lg p-3 border border-dark-800/40">
           <p className="font-semibold text-dark-400 mb-0.5">Privacy Notice:</p>
